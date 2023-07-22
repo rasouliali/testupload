@@ -1210,11 +1210,8 @@ $('#selectContactModal .close').on('click', function () {
 });
 
 $('#VideoCallModal .close').on('click', function () {
-    $('#VideoCallModal').modal('hide');
+    $('.hangup').trigger('click');
 });
 
 $('#VideoCallModal .hangup').on('click', function () {
-    $('#VideoCallModal').modal('hide');
-    initializeUserMediaVideo();
-    wsconn.invoke('callUser', UserId, true  /*{ "connectionId": targetConnectionId}*/);
 });
