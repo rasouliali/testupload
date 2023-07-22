@@ -1214,4 +1214,20 @@ $('#VideoCallModal .close').on('click', function () {
 });
 
 $('#VideoCallModal .hangup').on('click', function () {
+    $('.hangup').trigger('click');
 });
+
+function IsImage(fileName) {
+    var fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+    var imgExtention = [".jpg", ".jpeg", ".bmp", ".png", ".gif", ".tiff"];
+    if (imgExtention.includes(fileExtension))
+        return true;
+    return false;
+}
+function IsAudio(fileName) {
+    var fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+    var imgExtention = [".wav", ".mp3"];
+    if (imgExtention.includes(fileExtension))
+        return true;
+    return false;
+}

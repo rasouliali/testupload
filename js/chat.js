@@ -1,13 +1,17 @@
 ﻿"use strict";
-var delayRetry = [10, 2000, 10000, 30000, 60000];
+var delayRetry = [10, 2000, 10000, 15000, 17000, 20000, 30000, 60000, 300000];
 var myDelayRetryIndex = 0;
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub")
     .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: retryContext => {
                 // If we've been reconnecting for less than 60 seconds so far,
-                // wait between 0 and 10 seconds before the next reconnect attempt.
-            if (myDelayRetryIndex > 3) myDelayRetryIndex = 4;
-                return delayRetry[myDelayRetryIndex++];
+            // wait between 0 and 10 seconds before the next reconnect attempt.
+            console.log("retry connect to websocket with "+delayRetry[myDelayRetryIndex].toString()+"ms delay");
+
+            if (myDelayRetryIndex > 8)
+                myDelayRetryIndex = 8;
+
+            return delayRetry[myDelayRetryIndex++];
         }
     })
     .build();
@@ -15,6 +19,7 @@ var firstCall = true;
 //Disable send button until connection is established
 
 connection.on("Receive" + userid + "Message", function (user, message) {
+    myDelayRetryIndex = 0;
     var senderid = message.split(';;;')[1];
     if (message.startsWith('delmess;,;')) {
         if ($('.contact[data-id=' + senderid + ']').hasClass("active")) {
@@ -147,17 +152,21 @@ function appendNewContactById(userid) {
 }
 connection.start().then(function () {
     //document.getElementById("sendButton").disabled = false;
+    myDelayRetryIndex = 0;
+    console.log("connection start ");
 }).catch(function (err) {
     return console.log(err.toString());
 });
 
 function sendBySignalR(userid,mess) {
+    myDelayRetryIndex = 0;
     connection.invoke("SendMessage", userid, mess).catch(function (err) {
         return console.log(err.toString());
     });
     //event.preventDefault();
 }
 function sendBySignalRForDel(userid, messid) {
+    myDelayRetryIndex = 0;
     connection.invoke("SendMessage", userid, "delmess;,;" + messid).catch(function (err) {
         return console.log(err.toString());
     });
