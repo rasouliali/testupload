@@ -64,6 +64,10 @@ function LoadProgressBar(result, contactId) {
                         `</div>`;
                 if (IsImage(resArr[i]))
                     strLi += `<label><a data-url="/uploads/` + resArr[i] + `" class="img-tag" ><div><img class="fupload" src="/uploads/thumbnails/` + resArr[i] + `" /></div><div>` + resArr[i] + `</div></a></label>`;
+                else if (IsAudio(resArr[i]))
+                    strLi += `<label><div><audio controls src="/uploads/` + resArr[i] + `" ></audio></div><div> ` + resArr[i] + `</div></label>`;
+                else if (IsVideo(resArr[i]))
+                    strLi += `<label><div><video controls  ><source src="/uploads/` + resArr[i] + `" ></video></div><div> ` + resArr[i] + `</div></label>`;
                 else
                     strLi += `<label><a href="/uploads/` + resArr[i] + `" target="_blank" >file(` + resArr[i] + `)</a></label>`;
 
