@@ -50,6 +50,8 @@
           "QRCoder": "1.4.2",
           "SendGrid": "9.28.1",
           "SixLabors.ImageSharp": "3.0.1",
+          "SkiaSharp.NativeAssets.Linux": "2.88.3",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.3",
           "System.Data.OleDb": "6.0.0",
           "System.Drawing.Common": "6.0.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
@@ -364,7 +366,7 @@
       "Aspose.Words/23.8.0": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
-          "SkiaSharp": "2.80.1",
+          "SkiaSharp": "2.88.3",
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Text.Encoding.CodePages": "7.0.0"
@@ -1776,22 +1778,64 @@
           "lib/net6.0/SixLabors.ImageSharp.dll": {}
         }
       },
-      "SkiaSharp/2.80.1": {
+      "SkiaSharp/2.88.3": {
         "dependencies": {
-          "System.Memory": "4.5.4"
+          "SkiaSharp.NativeAssets.Win32": "2.88.3",
+          "SkiaSharp.NativeAssets.macOS": "2.88.3"
         },
         "runtime": {
-          "lib/netstandard2.0/SkiaSharp.dll": {
-            "assemblyVersion": "2.80.0.0",
-            "fileVersion": "2.80.1.0"
+          "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.3.0"
           }
         },
+        "compile": {
+          "lib/net6.0/SkiaSharp.dll": {}
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux/2.88.3": {
+        "dependencies": {
+          "SkiaSharp": "2.88.3"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.3": {
+        "dependencies": {
+          "SkiaSharp": "2.88.3"
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.3": {
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
             "rid": "osx",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
-          },
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.3": {
+        "runtimeTargets": {
           "runtimes/win-arm64/native/libSkiaSharp.dll": {
             "rid": "win-arm64",
             "assetType": "native",
@@ -1807,9 +1851,6 @@
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           }
-        },
-        "compile": {
-          "lib/netstandard2.0/SkiaSharp.dll": {}
         }
       },
       "starkbank-ecdsa/1.3.3": {
@@ -5306,12 +5347,40 @@
       "path": "sixlabors.imagesharp/3.0.1",
       "hashPath": "sixlabors.imagesharp.3.0.1.nupkg.sha512"
     },
-    "SkiaSharp/2.80.1": {
+    "SkiaSharp/2.88.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CiQwnDzG+1JNGzjAN9G/9n/lJgUVA/NPOFgSlEtu6c7qQ0O7P1tMjrXp/+PtWfX0xyyY9ABsFAZK2kW34U7r/A==",
-      "path": "skiasharp/2.80.1",
-      "hashPath": "skiasharp.2.80.1.nupkg.sha512"
+      "sha512": "sha512-GG8X3EdfwyBfwjl639UIiOVOKEdeoqDgYrz0P1MUCnefXt9cofN+AK8YB/v1+5cLMr03ieWCQdDmPqnFIzSxZw==",
+      "path": "skiasharp/2.88.3",
+      "hashPath": "skiasharp.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wz29evZVWRqN7WHfenFwQIgqtr8f5vHCutcl1XuhWrHTRZeaIBk7ngjhyHpjUMcQxtIEAdq34ZRvMQshsBYjqg==",
+      "path": "skiasharp.nativeassets.linux/2.88.3",
+      "hashPath": "skiasharp.nativeassets.linux.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jBDBOw1Xwqi+1fRRDLNhBwiREvYMDM1N+A2FvjJ7F1Bg37PFrQIKOfYpf7RKD6vvMzS2oTvSQMC7RN1rfKbMrg==",
+      "path": "skiasharp.nativeassets.linux.nodependencies/2.88.3",
+      "hashPath": "skiasharp.nativeassets.linux.nodependencies.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CEbWAXMGFkPV3S1snBKK7jEG3+xud/9kmSAhu0BEUKKtlMdxx+Qal0U9bntQREM9QpqP5xLWZooodi8IlV8MEg==",
+      "path": "skiasharp.nativeassets.macos/2.88.3",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.3.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MU4ASL8VAbTv5vSw1PoiWjjjpjtGhWtFYuJnrN4sNHFCePb2ohQij9JhSdqLLxk7RpRtWPdV93fbA53Pt+J0yw==",
+      "path": "skiasharp.nativeassets.win32/2.88.3",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.3.nupkg.sha512"
     },
     "starkbank-ecdsa/1.3.3": {
       "type": "package",
